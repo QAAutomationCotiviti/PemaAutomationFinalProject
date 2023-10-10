@@ -1,55 +1,71 @@
 package Page;
 import PageElements.CartPage;
 import PageElements.WomenPage;
+import PageElements.sorting;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
+
 
 
 public class MainPage {
     public static void main(String[] args) {
-        // Set up Chrome WebDriver using WebDriverManager
-//        WebDriverManager.chromedriver().setup();
 
         WebDriver driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
 
         // Maximize the browser window
         driver.manage().window().maximize();
 
-       // Navigate to the Women's section
-        driver.get("https://magento.softwaretestingboard.com/women.html");
+        // Navigate to homepage section
+        driver.get("https://magento.softwaretestingboard.com/");
+        //create page call
+        // Create an instance of the createPage class
+//
 
+        // Initialize the CreateAccountPage
+        PageElements.CreateAccountPage createAccountPage = new PageElements.CreateAccountPage(driver);
+
+        // Create an instance of the createPage class and pass the WebDriver instance
+        createPage createPageInstance = new createPage(driver);
+
+        // Call the main method of the createPage instance
+//        createPageInstance.main(new String[]{});
+
+
+
+        // Locate the "Women" link
+        WebElement womenLink = driver.findElement(By.xpath("//span[text()='Women']"));
+        womenLink.click();
 
         // Create instances of the element classes
         WomenPage womenPage = new WomenPage(driver);
         CartPage cartPage = new CartPage(driver);
+        sorting sort = new sorting(driver, wait);
 
         // Perform the actions
         womenPage.filterByWomen();
-//        womenPage.applyShoppingOptions("9"); // Assuming "9" is the value for a specific category
-
-        // Hover over the "Tops and Bottoms" option
         womenPage.hoverOverTopsAndBottoms();
-
-        // Click one of the options from the revealed dropdown (e.g., "Tops")
         womenPage.clickTopsOption();
-
-        // Click the dropdown and select "Tops and Bottoms" section directly
-        womenPage.selectTopsAndBottoms();
-
-
-        // Select an option from the list (e.g., "Tops")
-        womenPage.selectTopsOption();
+//        womenPage.selectTopsAndBottoms();
+//        womenPage.selectTopsOption();
 
 
-        cartPage.addToCart();
-        cartPage.sortItems("Price: Low to High"); // Provide the actual sorting criteria
+        // sorting call
+        sort.performSorting();
 
-
-        // Add assertions or further test steps as needed for validation
+        // Add the item to the cart
+//        cartPage.addToCart();
 
         // Close the browser
-        driver.quit();
+//        driver.quit();
     }
 
 }
+
