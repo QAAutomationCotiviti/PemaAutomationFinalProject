@@ -1,5 +1,6 @@
 package Page;
 import PageElements.CartPage;
+import PageElements.ProductPage;
 import PageElements.WomenPage;
 import PageElements.sorting;
 
@@ -14,10 +15,14 @@ import java.time.Duration;
 
 
 public class MainPage {
+
     public static void main(String[] args) {
 
         WebDriver driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        ProductPage productPage = new ProductPage(driver);
+        CartPage cartPage = new CartPage(driver);
+
 
 
         // Maximize the browser window
@@ -46,7 +51,7 @@ public class MainPage {
 
         // Create instances of the element classes
         WomenPage womenPage = new WomenPage(driver);
-        CartPage cartPage = new CartPage(driver);
+//        CartPage cartPage = new CartPage(driver);
         sorting sort = new sorting(driver, wait);
 
         // Perform the actions
@@ -59,6 +64,14 @@ public class MainPage {
 
         // sorting call
         sort.performSorting();
+
+
+        // Now, call the new ProductPage to select product options and add to cart
+        productPage.selectProductOptions("Product Name", "Medium", "Blue", "2");
+
+        // Add the item to the cart using the CartPage
+        cartPage.addToCart();
+
 
         // Add the item to the cart
 //        cartPage.addToCart();

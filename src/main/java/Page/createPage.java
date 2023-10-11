@@ -10,14 +10,14 @@ import utilities.utility;
 
 
 public class createPage {
-    private WebDriver driver;
+    private static WebDriver driver;
 
     // Constructor that accepts a WebDriver instance
     public createPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void main(String[] args) {
+    public  static void main(String[] args) {
         // Set up Chrome WebDriver using WebDriverManager
 //        WebDriverManager.chromedriver().setup();
 //        WebDriver driver = new ChromeDriver();
@@ -39,7 +39,7 @@ public class createPage {
         // Test scenario
         createAccountPage.enterFirstName("Pema");
         createAccountPage.enterLastName("Lama");
-        createAccountPage.enterEmail("test11@gmail.com");
+        createAccountPage.enterEmail("exampletest11@gmail.com");
         createAccountPage.enterPassword("Pema@123");
         createAccountPage.confirmPassword("Pema@123");
         createAccountPage.clickCreateAccountButton();

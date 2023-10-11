@@ -2,6 +2,7 @@ package PageElements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,7 +23,8 @@ public class WomenPage {
         WebElement womenFilter =  driver.findElement(By.xpath("//span[text()='Women']"));
         womenFilter.click();
 
-        WebElement topsOption = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Tops")));
+//        WebElement topsOption = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Tops")));
+        WebElement topsOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Tops']")));
 
         topsOption.click();
     }
