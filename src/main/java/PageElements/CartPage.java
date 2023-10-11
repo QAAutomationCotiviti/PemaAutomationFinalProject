@@ -29,9 +29,8 @@ public class CartPage {
 
     }
     public void clickCartIcon() {
-        WebElement cartIcon = driver.findElement(By.cssSelector("a.action.showcart"));
+        WebElement cartIcon = driver.findElement(By.className("showcart"));
         cartIcon.click();
-
     }
     public void viewCartItems() {
 //        WebElement viewCartButton = driver.findElement(By.cssSelector("a.action.viewcart"));
@@ -39,17 +38,13 @@ public class CartPage {
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //        WebElement viewCartButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.action.viewcart")));
 //        viewCartButton.click();
-        WebElement viewCartButton = driver.findElement(By.cssSelector("a.action.viewcart"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", viewCartButton);
+        WebElement viewCartButton = driver.findElement(By.className("viewcart"));
         viewCartButton.click();
-
-
     }
 
     public void proceedToCheckout() {
-        WebElement checkoutButton = driver.findElement(By.cssSelector("button[data-role='proceed-to-checkout']"));
+        WebElement checkoutButton = driver.findElement(By.xpath("//button[@type='button' and @data-role='proceed-to-checkout' and @title='Proceed to Checkout' and contains(@class, 'checkout')]"));
         checkoutButton.click();
-
     }
 //    public void verifyCartContents() {
 //

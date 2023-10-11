@@ -5,17 +5,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import PageElements.CreateAccountPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.utility;
 
+import java.time.Duration;
 
 
 public class createPage {
-    private static WebDriver driver;
+    private WebDriver driver;
+    private WebDriverWait wait;
     public createPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public  static void main(String[] args) {
+    public void main(String[] args) {
 
         // Navigate to the Magento website registration page using the shared WebDriver instance
         driver.get("https://magento.softwaretestingboard.com/customer/account/create/");
@@ -30,19 +34,12 @@ public class createPage {
 //        driver.get("https://magento.softwaretestingboard.com/customer/account/create/");
 
         // Test scenario
-        createAccountPage.enterFirstName("Qa");
-        createAccountPage.enterLastName("Tester");
-        createAccountPage.enterEmail("qatesting@gmail.com");
-        createAccountPage.enterPassword("Pema@123");
-        createAccountPage.confirmPassword("Pema@123");
+        createAccountPage.enterFirstName("XYZqwe");
+        createAccountPage.enterLastName("Surname123");
+        createAccountPage.enterEmail("testin777@gmail.com");
+        createAccountPage.enterPassword("Testinggg@123");
+        createAccountPage.confirmPassword("Testinggg@123");
         createAccountPage.clickCreateAccountButton();
 
-        WebElement womenSectionLink = driver.findElement(By.linkText("Women"));
-        womenSectionLink.click();
-
-
-
-        // Close the browser
-//        driver.quit();
     }
 }
