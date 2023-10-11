@@ -13,7 +13,7 @@ public class sorting {
 
     private WebDriver driver;
     private WebDriverWait wait;
-//    private By sortingLink = By.id("sorter"); // Replace with the actual locator for your sorting element
+//    private By sortingLink = By.id("sorter");
 
 
     public sorting(WebDriver driver, WebDriverWait wait) {

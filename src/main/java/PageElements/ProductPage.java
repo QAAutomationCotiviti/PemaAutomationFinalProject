@@ -39,10 +39,10 @@ public class ProductPage {
     }
 
     private void selectColor(String color) {
-//        WebElement colorDropdown = driver.findElement(By.id("color")); // Replace with actual ID
+//        WebElement colorDropdown = driver.findElement(By.id("color"));
 //        Select colorSelect = new Select(colorDropdown);
 //        colorSelect.selectByVisibleText(color);
-        WebElement colorElement = driver.findElement(By.id("option-label-color-93-item-56")); // Replace with actual ID
+        WebElement colorElement = driver.findElement(By.id("option-label-color-93-item-56"));
         colorElement.click();
     }
 

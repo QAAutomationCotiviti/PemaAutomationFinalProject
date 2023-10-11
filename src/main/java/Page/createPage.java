@@ -11,18 +11,11 @@ import utilities.utility;
 
 public class createPage {
     private static WebDriver driver;
-
-    // Constructor that accepts a WebDriver instance
     public createPage(WebDriver driver) {
         this.driver = driver;
     }
 
     public  static void main(String[] args) {
-        // Set up Chrome WebDriver using WebDriverManager
-//        WebDriverManager.chromedriver().setup();
-//        WebDriver driver = new ChromeDriver();
-
-//        driver.manage().window().maximize();
 
         // Navigate to the Magento website registration page using the shared WebDriver instance
         driver.get("https://magento.softwaretestingboard.com/customer/account/create/");
@@ -37,9 +30,9 @@ public class createPage {
 //        driver.get("https://magento.softwaretestingboard.com/customer/account/create/");
 
         // Test scenario
-        createAccountPage.enterFirstName("Pema");
-        createAccountPage.enterLastName("Lama");
-        createAccountPage.enterEmail("exampletest11@gmail.com");
+        createAccountPage.enterFirstName("Qa");
+        createAccountPage.enterLastName("Tester");
+        createAccountPage.enterEmail("qatesting@gmail.com");
         createAccountPage.enterPassword("Pema@123");
         createAccountPage.confirmPassword("Pema@123");
         createAccountPage.clickCreateAccountButton();
